@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <body>
+            <div>Page 2 </div>
+            <div id = "button_start" ><input type="button" onclick= "startTimer()"value="Запустить таймер"/> </div>
+            <input type="text" value="10" id="timer_inp">
+            <div id = "button_stop" ><input type="button" onclick= "stopTimer()"value="Остановить таймер"/> </div>
+            <div id = "button_refresh" ><input type="button" onclick= "refresh()"value="Начать отсчёт заново"/> </div>
+            <input type="button" onclick= "back()"value="Назад"/> 
+    
+
+        <script>
+            function timer() 
+            {
+                var obj = document.getElementById('timer_inp');
+                obj.value = parseInt(obj.value)-1;
+                if(obj.value==0)
+                 {
+                   
+                   location.replace("page 3.html")
+                   setTimeout(function(){},1000);
+                }
+
+            }
+            function startTimer()
+            {
+                window.timerId = window.setInterval(timer, 1000);
+
+            }
+            function stopTimer()
+            {
+                window.clearInterval(window.timerId);       
+            
+            }
+             function back()
+            {
+                location.replace("page 1.html")
+            }
+            function refresh()
+            {
+                window.location.reload();
+            }
+           
+            
+
+
+
+            </script>
+      
+    </body>
+    </html>

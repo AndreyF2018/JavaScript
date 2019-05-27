@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <body>
+        <script>
+            var str = prompt("Input string");
+            var ignoreChar = ["?", "!", ":", ";", ",", ".", " ", "\t", "\r"];
+var letters = {}, result;
+var phrase = str.split(' ');
+ 
+phrase.forEach(function (word) {
+    word.split('').forEach(function (symbol, i) {
+        if (!letters[symbol] && ignoreChar.indexOf(symbol) == -1 && -1 != word.indexOf(symbol, i + 1)) {
+            letters[symbol] = 1;
+        }
+    });
+});
+ 
+result = str.split('').filter(function (v) {
+    return !letters[v];
+}).join('');
+alert(result)
+          </script>
+      
+</body>
+</head>
+</html>

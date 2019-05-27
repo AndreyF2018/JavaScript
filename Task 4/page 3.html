@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <body>
+            <div>Page 3 </div>
+            <div id = "button_start" ><input type="button" onclick= "startTimer()"value="Запустить таймер"/> </div>
+            <input type="text" value="10" id="timer_inp">
+            <div id = "button_stop" ><input type="button" onclick= "stopTimer()"value="Остановить таймер"/> </div>
+            <div id = "button_refresh" ><input type="button" onclick= "refresh()"value="Начать отсчёт заново"/> </div>
+            <input type="button" onclick= "back()"value="Назад"/> 
+            <div id = "button_begin" ><input type="button" onclick= "toTheBegining()"value="К первой странице"/> </div>
+    
+
+        <script>
+        var objBut=document.getElementById('button_begin');
+        objBut.style.visibility = "hidden"
+        
+        function timer() 
+            {
+                var obj = document.getElementById('timer_inp');
+                if ( obj.value > 0)
+                {
+                    obj.value = parseInt(obj.value)-1;
+                
+                    if(obj.value == 0)
+                    {
+                           objBut.style.visibility = "visible"
+                        
+                     }
+                }
+                
+
+            }
+            function startTimer()
+            {
+                window.timerId = window.setInterval(timer, 1000);
+
+            }
+            function stopTimer()
+            {
+                window.clearInterval(window.timerId);       
+            
+            }
+            
+            
+            function back()
+            {
+                location.replace("page 2.html")
+            }
+            function toTheBegining()
+            {
+                location.replace("page 1.html")
+            }
+            function refresh()
+            {
+                window.location.reload();
+            }
+            
+
+
+
+            </script>
+      
+    </body>
+    </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <body>
+        <script>
+var str = prompt("Input string");
+function delete_spaces(str)
+{
+	str = str.replace(/\s/g, '');
+	return str;
+}
+str = delete_spaces(str)
+
+//var regstr = str.match(/\-?\d+(\.\d+)?|[\+,\-,\*,\/,\=]{1}/ig);
+var regstr = str.match(/\-?\d+(\.\d+)?|[\+,\-,\*,\/,\=]{1}/g);
+
+for (var i = 1; i < regstr.length; i = i + 2) 
+{
+    if (regstr[i] === '+') 
+    {
+        regstr[i+1] = parseFloat(regstr[i-1]) + parseFloat(regstr[i+1])
+    }
+    else if (regstr[i] === '-') 
+    {
+        regstr[i+1] = parseFloat(regstr[i-1]) - parseFloat(regstr[i+1])
+    }
+    else if (regstr[i] === '*') 
+    {
+        regstr[i+1] = parseFloat(regstr[i-1]) * parseFloat(regstr[i+1])
+    }
+    else if (regstr[i] === '/') 
+    {
+        regstr[i+1] = parseFloat(regstr[i-1]) / parseFloat(regstr[i+1])
+    }
+    else if (regstr[i] === '=') 
+    {
+        var result = regstr[i-1]
+    }
+    else 
+    {
+        regstr[i] =  parseFloat(regstr[i-1]) +  parseFloat(regstr[i]);
+        i = i - 1;
+    }
+};
+alert(result.toFixed(2))
+</script>
+      
+    </body>
+    </html>
